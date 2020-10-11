@@ -1,0 +1,55 @@
+Apache Cassandra:(combination of BigData nd DynamoDB)
+
+Apache Cassandra is an example of NoSQL Database.
+NoSQL database is Non-relational database
+It is a column-oriented database.
+stores the data in the form of key value pairs
+No master slave concept (masterless replication) it will be like cassandra cluster rings
+
+Node concept (not a centralized node)
+create replication - configure the nodes (can define nodes to store the data)
+
+support collections
+
+Cassandra Tutorial – Data Model:
+--------------------------------
+Cluster: A Cassandra Cluster is a storage unit for data centers on which the entire data is stored for processing in the Cassandra NoSQL database.
+
+Data center: A set of related nodes are grouped in a data center.
+
+Node: The specific place where the data resides on the cluster is called a node.
+
+
+Commit log: It is a failsafe method that is deployed by Cassandra in order to take a backup of all data in the Cassandra database by writing it to the commit log.
+
+Memtable: It is a data structure that resides in the memory where Cassandra buffers writes. There will be one active Memtable per table.
+
+SSTable: When Memtables reach their threshold value, they are flushed onto the disk, and they become immutable SSTables.
+
+Bloom filter: The bloom filter is an algorithm that lets you test whether an element is a member of a set in a swift manner. These bloom filters are accessed after each query.
+
+-------------------------------
+
+C:\Softwares\apache-cassandra-3.11.8\bin>cassandra
+
+
+C:\Softwares\apache-cassandra-3.11.8>cqlsh
+
+WARNING: console codepage must be set to cp65001 to support utf-8 encoding on Windows platforms.
+If you experience encoding problems, change your console codepage with 'chcp 65001' before starting cqlsh.
+
+Connected to Test Cluster at 127.0.0.1:9042.
+[cqlsh 5.0.1 | Cassandra 3.11.8 | CQL spec 3.4.4 | Native protocol v4]
+Use HELP for help.
+WARNING: pyreadline dependency missing.  Install to enable tab completion.
+cqlsh> create keyspace anitha with replication={'class':'SimpleStrategy', 'replication_factor':1};
+cqlsh> use anitha;
+cqlsh:anitha> CREATE TABLE tutorial(
+          ...    id timeuuid PRIMARY KEY,
+          ...    title text,
+          ...    description text,
+          ...    published boolean
+          ...
+          ... );
+cqlsh:anitha>
+
